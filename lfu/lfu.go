@@ -59,8 +59,8 @@ func (dll *doublyLinkedList) addNode(node *node) {
 	node.next = dll.head.next
 	node.pre = dll.head
 
-	dll.head.next = node
 	dll.head.next.pre = node
+	dll.head.next = node
 }
 
 func (c *Cache) incrFreq(n *node) {
@@ -69,8 +69,14 @@ func (c *Cache) incrFreq(n *node) {
 
 	freqDll.removeNode(n)
 
-	if freq == c.min && freqDll.head.next == freqDll.tail.pre {
-		c.min = freq + 1
+	dllEmptied := freqDll.head.next == freqDll.tail
+
+	if dllEmptied {
+		delete(c.freqMap, n.freq)
+	}
+
+	if freq == c.min && dllEmptied {
+		c.min = (freq + 1)
 	}
 
 	n.freq = freq + 1
@@ -105,12 +111,15 @@ func (c *Cache) Put(key, val int) {
 	if node != nil {
 		node.val = val
 		c.incrFreq(node)
+		return
 	}
 
 	if c.size == c.capacity {
 		dll := c.freqMap[c.min]
-		dll.removeNode(dll.tail.pre)
-		delete(c.nodeMap, dll.tail.pre.key)
+		toRemove := dll.tail.pre
+
+		dll.removeNode(toRemove)
+		delete(c.nodeMap, toRemove.key)
 		c.size = c.size - 1
 	}
 	node = newNode()
@@ -123,6 +132,7 @@ func (c *Cache) Put(key, val int) {
 	if freqDll == nil {
 		freqDll = newDLL()
 	}
+	c.freqMap[1] = freqDll
 
 	freqDll.addNode(node)
 }
