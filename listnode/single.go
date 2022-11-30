@@ -122,3 +122,19 @@ func DeleteAtIndex(head *ListNode, index int) *ListNode {
 
 	return dummy.Next
 }
+
+func Revert(head *ListNode) *ListNode {
+	var prev *ListNode
+	cur := head
+
+	var tmp *ListNode
+
+	for cur != nil {
+		tmp = cur.Next
+		cur.Next = prev
+		prev = cur
+		cur = tmp
+	}
+
+	return prev
+}
