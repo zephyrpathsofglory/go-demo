@@ -138,3 +138,22 @@ func Revert(head *ListNode) *ListNode {
 
 	return prev
 }
+
+func SwitchPairs(head *ListNode) *ListNode {
+	dummy := &ListNode{
+		Next: head,
+	}
+
+	cur := dummy
+
+	for cur.Next != nil && cur.Next.Next != nil {
+		tmp := cur.Next.Next.Next
+		tmp2 := cur.Next.Next
+		cur.Next.Next.Next = cur.Next
+		cur.Next.Next = tmp
+		cur.Next = tmp2
+		cur = cur.Next.Next
+	}
+
+	return dummy.Next
+}
