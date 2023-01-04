@@ -157,3 +157,25 @@ func SwitchPairs(head *ListNode) *ListNode {
 
 	return dummy.Next
 }
+
+func RemoveNthFromEnd(head *ListNode, n int) *ListNode {
+	fast := head
+	slow := head
+
+	for i := 0; i < n; i++ {
+		fast = fast.Next
+	}
+
+	if fast == nil {
+		return head.Next
+	}
+
+	for fast != nil && fast.Next != nil {
+		fast = fast.Next
+		slow = slow.Next
+	}
+
+	slow.Next = slow.Next.Next
+
+	return head
+}
