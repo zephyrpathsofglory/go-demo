@@ -3,7 +3,7 @@ package listnode_test
 import (
 	"testing"
 
-	"github.com/go-demo/listnode"
+	"github.com/go-demo/linkedlist/listnode"
 	"github.com/stretchr/testify/assert"
 )
 
