@@ -1,21 +1,20 @@
-package listnode_test
+package listnode
 
 import (
 	"testing"
 
-	"github.com/go-demo/linkedlist/listnode"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestSwitchPairs(t *testing.T) {
 	{
-		head := &listnode.ListNode{
+		head := &ListNode{
 			Val: 1,
-			Next: &listnode.ListNode{
+			Next: &ListNode{
 				Val: 2,
-				Next: &listnode.ListNode{
+				Next: &ListNode{
 					Val: 3,
-					Next: &listnode.ListNode{
+					Next: &ListNode{
 						Val:  4,
 						Next: nil,
 					},
@@ -23,7 +22,7 @@ func TestSwitchPairs(t *testing.T) {
 			},
 		}
 
-		res := listnode.SwitchPairs(head)
+		res := SwitchPairs(head)
 
 		nums := make([]int, 0, 5)
 		cur := res
@@ -36,18 +35,18 @@ func TestSwitchPairs(t *testing.T) {
 	}
 
 	{
-		head := &listnode.ListNode{
+		head := &ListNode{
 			Val: 1,
-			Next: &listnode.ListNode{
+			Next: &ListNode{
 				Val: 2,
-				Next: &listnode.ListNode{
+				Next: &ListNode{
 					Val:  3,
 					Next: nil,
 				},
 			},
 		}
 
-		res := listnode.SwitchPairs(head)
+		res := SwitchPairs(head)
 
 		nums := make([]int, 0, 5)
 		cur := res
@@ -61,12 +60,12 @@ func TestSwitchPairs(t *testing.T) {
 
 	{
 		{
-			head := &listnode.ListNode{
+			head := &ListNode{
 				Val:  1,
 				Next: nil,
 			}
 
-			res := listnode.SwitchPairs(head)
+			res := SwitchPairs(head)
 
 			nums := make([]int, 0, 5)
 			cur := res
@@ -82,9 +81,9 @@ func TestSwitchPairs(t *testing.T) {
 	{
 		{
 			{
-				var head *listnode.ListNode
+				var head *ListNode
 
-				res := listnode.SwitchPairs(head)
+				res := SwitchPairs(head)
 
 				nums := make([]int, 0, 5)
 				cur := res

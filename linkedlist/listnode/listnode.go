@@ -83,3 +83,36 @@ func RemoveNthFromEnd(head *ListNode, n int) *ListNode {
 
 	return head
 }
+
+func ReverseBetween(head *ListNode, left int, right int) *ListNode {
+	dummy := &ListNode{
+		Next: head,
+	}
+	leftMost := dummy
+	leftCur := dummy
+	var rightCur, rightMost *ListNode
+
+	for i := 0; i < left; i++ {
+		if i == left-1 {
+			leftCur = leftMost
+		}
+		leftMost = leftMost.Next
+	}
+
+	tmp1 := leftMost
+	tmp2 := tmp1.Next
+	for i := 0; i < right-left; i++ {
+		tmp := tmp2.Next
+		tmp2.Next = tmp1
+		tmp1 = tmp2
+		tmp2 = tmp
+	}
+
+	rightMost = tmp1
+	rightCur = tmp2
+
+	leftCur.Next = rightMost
+	leftMost.Next = rightCur
+
+	return dummy.Next
+}

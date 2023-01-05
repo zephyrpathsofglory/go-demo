@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestRevert(t *testing.T) {
+func TestReverseBetween(t *testing.T) {
 	{
 		head := &ListNode{
 			Val: 1,
@@ -22,7 +22,7 @@ func TestRevert(t *testing.T) {
 			},
 		}
 
-		res := Revert(head)
+		res := ReverseBetween(head, 2, 4)
 
 		nums := make([]int, 0, 5)
 		cur := res
@@ -31,17 +31,20 @@ func TestRevert(t *testing.T) {
 			cur = cur.Next
 		}
 
-		assert.Equal(t, nums, []int{4, 3, 2, 1})
+		assert.Equal(t, nums, []int{1, 4, 3, 2})
 	}
 
 	{
 		{
 			head := &ListNode{
-				Val:  1,
-				Next: nil,
+				Val: 1,
+				Next: &ListNode{
+					Val:  2,
+					Next: nil,
+				},
 			}
 
-			res := Revert(head)
+			res := ReverseBetween(head, 1, 2)
 
 			nums := make([]int, 0, 5)
 			cur := res
@@ -50,26 +53,7 @@ func TestRevert(t *testing.T) {
 				cur = cur.Next
 			}
 
-			assert.Equal(t, nums, []int{1})
-		}
-	}
-
-	{
-		{
-			{
-				var head *ListNode
-
-				res := Revert(head)
-
-				nums := make([]int, 0, 5)
-				cur := res
-				for cur != nil {
-					nums = append(nums, cur.Val)
-					cur = cur.Next
-				}
-
-				assert.Equal(t, nums, []int{})
-			}
+			assert.Equal(t, nums, []int{2, 1})
 		}
 	}
 }

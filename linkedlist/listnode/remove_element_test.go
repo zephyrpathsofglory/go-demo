@@ -1,21 +1,20 @@
-package listnode_test
+package listnode
 
 import (
 	"testing"
 
-	"github.com/go-demo/linkedlist/listnode"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestRemoveElements(t *testing.T) {
 	{
-		head := &listnode.ListNode{
+		head := &ListNode{
 			Val: 1,
-			Next: &listnode.ListNode{
+			Next: &ListNode{
 				Val: 2,
-				Next: &listnode.ListNode{
+				Next: &ListNode{
 					Val: 3,
-					Next: &listnode.ListNode{
+					Next: &ListNode{
 						Val:  4,
 						Next: nil,
 					},
@@ -23,7 +22,7 @@ func TestRemoveElements(t *testing.T) {
 			},
 		}
 
-		res := listnode.RemoveElements(head, 1)
+		res := RemoveElements(head, 1)
 
 		nums := make([]int, 0, 4)
 		cur := res
@@ -36,13 +35,13 @@ func TestRemoveElements(t *testing.T) {
 	}
 
 	{
-		head := &listnode.ListNode{
+		head := &ListNode{
 			Val: 1,
-			Next: &listnode.ListNode{
+			Next: &ListNode{
 				Val: 2,
-				Next: &listnode.ListNode{
+				Next: &ListNode{
 					Val: 1,
-					Next: &listnode.ListNode{
+					Next: &ListNode{
 						Val:  4,
 						Next: nil,
 					},
@@ -50,7 +49,7 @@ func TestRemoveElements(t *testing.T) {
 			},
 		}
 
-		res := listnode.RemoveElements(head, 1)
+		res := RemoveElements(head, 1)
 
 		nums := make([]int, 0, 4)
 		cur := res
@@ -63,13 +62,13 @@ func TestRemoveElements(t *testing.T) {
 	}
 
 	{
-		head := &listnode.ListNode{
+		head := &ListNode{
 			Val: 1,
-			Next: &listnode.ListNode{
+			Next: &ListNode{
 				Val: 2,
-				Next: &listnode.ListNode{
+				Next: &ListNode{
 					Val: 3,
-					Next: &listnode.ListNode{
+					Next: &ListNode{
 						Val:  4,
 						Next: nil,
 					},
@@ -77,7 +76,7 @@ func TestRemoveElements(t *testing.T) {
 			},
 		}
 
-		res := listnode.RemoveElements(head, 2)
+		res := RemoveElements(head, 2)
 
 		nums := make([]int, 0, 4)
 		cur := res
@@ -90,13 +89,13 @@ func TestRemoveElements(t *testing.T) {
 	}
 
 	{
-		head := &listnode.ListNode{
+		head := &ListNode{
 			Val: 1,
-			Next: &listnode.ListNode{
+			Next: &ListNode{
 				Val: 2,
-				Next: &listnode.ListNode{
+				Next: &ListNode{
 					Val: 3,
-					Next: &listnode.ListNode{
+					Next: &ListNode{
 						Val:  2,
 						Next: nil,
 					},
@@ -104,7 +103,7 @@ func TestRemoveElements(t *testing.T) {
 			},
 		}
 
-		res := listnode.RemoveElements(head, 2)
+		res := RemoveElements(head, 2)
 
 		nums := make([]int, 0, 4)
 		cur := res

@@ -1,21 +1,20 @@
-package listnode_test
+package listnode
 
 import (
 	"testing"
 
-	"github.com/go-demo/linkedlist/listnode"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestRemoveNthFromEnd(t *testing.T) {
 	{
-		head := &listnode.ListNode{
+		head := &ListNode{
 			Val: 1,
-			Next: &listnode.ListNode{
+			Next: &ListNode{
 				Val: 2,
-				Next: &listnode.ListNode{
+				Next: &ListNode{
 					Val: 3,
-					Next: &listnode.ListNode{
+					Next: &ListNode{
 						Val:  4,
 						Next: nil,
 					},
@@ -23,7 +22,7 @@ func TestRemoveNthFromEnd(t *testing.T) {
 			},
 		}
 
-		res := listnode.RemoveNthFromEnd(head, 2)
+		res := RemoveNthFromEnd(head, 2)
 
 		nums := make([]int, 0, 5)
 		cur := res
@@ -37,15 +36,15 @@ func TestRemoveNthFromEnd(t *testing.T) {
 
 	{
 		{
-			head := &listnode.ListNode{
+			head := &ListNode{
 				Val: 1,
-				Next: &listnode.ListNode{
+				Next: &ListNode{
 					Val:  2,
 					Next: nil,
 				},
 			}
 
-			res := listnode.RemoveNthFromEnd(head, 1)
+			res := RemoveNthFromEnd(head, 1)
 
 			nums := make([]int, 0, 5)
 			cur := res
@@ -60,15 +59,15 @@ func TestRemoveNthFromEnd(t *testing.T) {
 
 	{
 		{
-			head := &listnode.ListNode{
+			head := &ListNode{
 				Val: 1,
-				Next: &listnode.ListNode{
+				Next: &ListNode{
 					Val:  2,
 					Next: nil,
 				},
 			}
 
-			res := listnode.RemoveNthFromEnd(head, 2)
+			res := RemoveNthFromEnd(head, 2)
 
 			nums := make([]int, 0, 5)
 			cur := res
@@ -83,12 +82,12 @@ func TestRemoveNthFromEnd(t *testing.T) {
 
 	{
 		{
-			head := &listnode.ListNode{
+			head := &ListNode{
 				Val:  1,
 				Next: nil,
 			}
 
-			res := listnode.RemoveNthFromEnd(head, 1)
+			res := RemoveNthFromEnd(head, 1)
 
 			nums := make([]int, 0, 5)
 			cur := res
