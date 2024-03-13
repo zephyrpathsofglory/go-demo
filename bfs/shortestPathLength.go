@@ -1,6 +1,5 @@
-package main
-
-import "fmt"
+// https://leetcode.cn/problems/shortest-path-visiting-all-nodes/solutions/918311/fang-wen-suo-you-jie-dian-de-zui-duan-lu-mqc2/
+package bfs
 
 func shortestPathLength(graph [][]int) int {
 	n := len(graph)
@@ -28,9 +27,4 @@ func shortestPathLength(graph [][]int) int {
 			}
 		}
 	}
-}
-
-func main() {
-	i := shortestPathLength([][]int{{1, 2, 3}, {0}, {0}, {0}})
-	fmt.Println(i)
 }
