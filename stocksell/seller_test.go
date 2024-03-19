@@ -24,4 +24,12 @@ func TestMaxProfit(t *testing.T) {
 		prices := []int{10, 20, 1, 2, 9}
 		assert.Equal(t, 10, stocksell.MaxProfit(prices))
 	}
+	{
+		prices := []int{5, 4, 3, 2, 1}
+		assert.Equal(t, 0, stocksell.MaxProfit(prices))
+	}
+	{
+		prices := []int{7, 1, 5, 3, 6, 4}
+		assert.Equal(t, 5, stocksell.MaxProfit(prices))
+	}
 }

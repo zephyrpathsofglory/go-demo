@@ -39,6 +39,8 @@ func FindMin(root *AVLNode) *AVLNode {
 	return root
 }
 
+// balance factor, 每个节点都有一个平衡因子，表示该节点的左子树高度减去右子树高度的差值。平衡因子通常在范围[-1, 0, 1]内
+// 通过获取节点的平衡因子，可以确定是否需要进行平衡操作来保持树的平衡性。
 func GetBF(root *AVLNode) int {
 	var lh, rh int
 
