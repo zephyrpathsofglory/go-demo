@@ -1,4 +1,4 @@
-package leetcode
+package od
 
 /*
 机器人走迷宫 深度优先搜索

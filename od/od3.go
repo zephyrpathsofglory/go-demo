@@ -1,4 +1,4 @@
-package leetcode
+package od
 
 /*
 公司分月饼，m个员工，买了n个月饼，m <= n，每个员工至少分一个月饼，但是也可以分到多个，单人分到最多月饼的个数是Max1，

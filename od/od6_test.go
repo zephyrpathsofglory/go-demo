@@ -1,4 +1,4 @@
-package leetcode
+package od
 
 import (
 	"testing"
