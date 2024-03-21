@@ -1,4 +1,4 @@
-package leetcode
+package od
 
 /*
 定义：开头和结尾都是元音字母（aeiouAEIOU）的字符串为元音字符串，其中混杂的非元音字母数量为瑕疵度。比如：
