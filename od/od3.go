@@ -46,3 +46,30 @@ package od
 11、12 = 3 + 4 + 5 （Max1=5，Max2=4，Max3=3 满足要求）
 12 = 4 + 4 + 4 （Max1=4，满足要求）
 */
+
+func divideMooncake(cakeCount, peopleNum int) (methods int) {
+	var f func(int, int, int, int)
+
+	f = func(total, leastCount, maxCount, peopleCount int) {
+		if peopleCount == 0 && total == 0 {
+			methods += 1
+			return
+		}
+		if peopleCount <= 0 && total > 0 {
+			return
+		}
+
+		for i := leastCount; i <= maxCount; i++ {
+			if total-i < 0 {
+				break
+			}
+			f(total-i, i, i+3, peopleCount-1)
+		}
+
+		return
+	}
+
+	f(cakeCount, 1, cakeCount/peopleNum, peopleNum)
+
+	return
+}
