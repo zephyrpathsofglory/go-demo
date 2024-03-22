@@ -1,4 +1,4 @@
-package leetcode
+package od
 
 /*
 题目描述
@@ -13,3 +13,32 @@ matrix[i][j]==matrix[j][i] 。
 /*
 实质是图的遍历，求连通分量的个数；
 */
+
+func computeBroadcastCount(connectivities [][]int) int {
+	traveled := make([]bool, len(connectivities), len(connectivities))
+	count := 0
+
+	var f func(int)
+	f = func(n int) {
+		if traveled[n] {
+			return
+		}
+
+		traveled[n] = true
+
+		for j, b := range connectivities[n] {
+			if b == 1 && j != n {
+				f(j)
+			}
+		}
+	}
+
+	for i := range connectivities {
+		if traveled[i] == false {
+			f(i)
+			count += 1
+		}
+	}
+
+	return count
+}
