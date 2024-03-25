@@ -1,22 +1,44 @@
 package od
 
+import (
+	"cmp"
+	"slices"
+)
+
 /*
-警察在侦破一个案件时，得到了线人给出的可能犯罪时间，形如 “HH:MM” 表示的时刻。根据警察和线人的约定，为了隐蔽，该时间是修改过的，
-解密规则为：利用当前出现过的数字，构造下一个距离当前时间最近的时刻，则该时间为可能的犯罪时间。每个出现数字
-都可以被无限次使用。
+题目
+某公司组织一场公开招聘活动，假设由于人数和场地的限制， 每人每次面试的时长不等，并已经安排给定，
+用(S1,E1)、(S2,E2)、(Sj,Ej)...(Si < Ei，均为非负整数)表示每场面试的开始和结束时间。
+面试采用一对一的方式，即一名面试官同时只能面试一名应试者， 一名面试官完成一次面试后可以立即进行下一场面试，且每个面试官的面试人次不超过m。
+为了支撑招聘活动高效顺利进行，请你计算至少需要多少名面试官。
 
-输入描述:形如HH:SS的字符串，表示原始输入
-输出描述:形如HH:SS的字符串，表示推理出来的犯罪时间。
+输入
+输入的第一行为面试官的最多面试人次 m，第二行为当天总的面试场次 n， 接下来的 n 行为每场面试的起始时间和结束时间，起始时间和结束时间用空格分隔。
+其中，1 <= n, m <= 500
 
---------------
-示例1输入18:52输出18:55说明利用数字1, 8, 5, 2构造出来的最近时刻是18:55，是3分钟之后。
-结果不是18:51, 因为18:51要到第二天了。
-
---------------
-示例2输入23:59输出22:22说明利用数字2, 3, 5, 9构造出来的
-最近时刻是22:22。 答案一定是第二天的某一时刻，所以选择可构造的最小时刻为犯罪时间。
-
-备注:
-1. 可以保证线人给定的字符串一定是合法的。例如，“01:35” 和 “11:08” 是合法的，“1:35” 和 “11:8” 是不合法的。
-2. 最近的时刻有可能在第二天
+输出
+输出一个整数，表示至少需要的面试官数量。
 */
+
+func leastInterviewer(interviews [][2]int, maxInterviewPerInterviewer, interviewCount int) int {
+	schedule := make([][]int, interviewCount, interviewCount)
+
+	slices.SortFunc(interviews, func(x, y [2]int) int {
+		return cmp.Compare(x[0], y[0])
+	})
+
+	for _, interview := range interviews {
+		for i, s := range schedule {
+			if len(s) == 0 || (len(s) < maxInterviewPerInterviewer && s[len(s)-1] <= interview[0]) {
+				schedule[i] = append(schedule[i], interview[1])
+				break
+			}
+		}
+	}
+
+	s := slices.DeleteFunc(schedule, func(i []int) bool {
+		return len(i) == 0
+	})
+
+	return len(s)
+}
