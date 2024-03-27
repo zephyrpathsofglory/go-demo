@@ -7,6 +7,9 @@ import (
 )
 
 func TestFindMin(t *testing.T) {
+	assert.Equal(t, 2, findMin([]int{2}))
+	assert.Equal(t, 2, findMin([]int{2, 3}))
+	assert.Equal(t, 2, findMin([]int{3, 2}))
 	assert.Equal(t, 1, findMin([]int{3, 4, 5, 1, 2}))
 	assert.Equal(t, 1, findMin([]int{3, 4, 5, 1}))
 	assert.Equal(t, 0, findMin([]int{4, 5, 6, 7, 0, 1, 2}))
