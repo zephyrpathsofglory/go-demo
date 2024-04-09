@@ -17,3 +17,15 @@ func TestPermute(t *testing.T) {
 		assert.Equal(t, 24, len(res))
 	}
 }
+
+func TestPermuteBacktrace(t *testing.T) {
+	{
+		res := permuteBacktrace([]int{1, 2, 3})
+		assert.Equal(t, 6, len(res))
+	}
+
+	{
+		res := permuteBacktrace([]int{1, 2, 3, 4})
+		assert.Equal(t, 24, len(res))
+	}
+}
