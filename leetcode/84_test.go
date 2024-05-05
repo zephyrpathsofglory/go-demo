@@ -23,4 +23,12 @@ func TestLargestRectangleArea(t *testing.T) {
 		heights := []int{2, 1, 5, 6, 2, 3}
 		assert.Equal(t, 10, LargestRectangleArea(heights))
 	}
+	{
+		heights := []int{2, 1, 5, 5, 6, 2, 3}
+		assert.Equal(t, 15, LargestRectangleArea(heights))
+	}
+	{
+		heights := []int{2, 1, 5, 6, 2, 3, 2, 3}
+		assert.Equal(t, 12, LargestRectangleArea(heights))
+	}
 }
