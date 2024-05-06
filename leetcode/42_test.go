@@ -1,6 +1,4 @@
-// 42. Trapping Rain Water
-
-package trw
+package leetcode
 
 import (
 	"testing"
