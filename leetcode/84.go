@@ -26,9 +26,9 @@ func LargestRectangleArea(heights []int) int {
 			last := stack[len(stack)-1]
 			stack = stack[:len(stack)-1]
 
-			left := stack[len(stack)-1]
+			prev := stack[len(stack)-1]
 
-			size := heights[last] * (i - left - 1)
+			size := heights[last] * (i - prev - 1)
 
 			if size > max {
 				max = size
