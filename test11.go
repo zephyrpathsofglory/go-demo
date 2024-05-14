@@ -9,7 +9,7 @@ import "fmt"
 [9 3 4]
 */
 
-func main() {
+func main11() {
 	arr := []int{1}
 
 	myfunc1(arr)
