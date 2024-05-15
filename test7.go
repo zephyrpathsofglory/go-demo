@@ -28,7 +28,7 @@ func (cwg CustomWaitGroup) Wait() {
 	<-cwg.done
 }
 
-func main() {
+func main7() {
 	var wg CustomWaitGroup
 	wg.Add(1)
 

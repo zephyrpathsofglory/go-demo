@@ -13,7 +13,7 @@ import "fmt"
 5
 */
 
-func main() {
+func main12() {
 	fmt.Println(test1())
 	fmt.Println(test2())
 	fmt.Println(test3())
