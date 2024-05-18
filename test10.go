@@ -27,6 +27,6 @@ func f() (err error) {
 	return
 }
 
-func main() {
+func main10() {
 	fmt.Println(f())
 }
