@@ -7,7 +7,7 @@ import (
 )
 
 // sync.Mutex 可以被其他 goroutine Unlock
-func main() {
+func main13() {
 	var m sync.Mutex
 
 	go func() {
