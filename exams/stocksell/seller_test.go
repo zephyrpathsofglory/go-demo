@@ -3,7 +3,7 @@ package stocksell_test
 import (
 	"testing"
 
-	"github.com/go-demo/stocksell"
+	"github.com/go-demo/exams/stocksell"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -3,7 +3,7 @@ package median_test
 import (
 	"testing"
 
-	"github.com/go-demo/median"
+	"github.com/go-demo/exams/median"
 	"github.com/stretchr/testify/assert"
 )
 

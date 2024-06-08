@@ -19,7 +19,7 @@ deleteAtIndex(index)：如果索引 index 有效，则删除链表中的第 in
 
 package linkedlist
 
-import "github.com/go-demo/linkedlist/listnode"
+import "github.com/go-demo/exams/linkedlist/listnode"
 
 type MyLinkedList struct {
 	dummy *listnode.ListNode

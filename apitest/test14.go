@@ -1,4 +1,4 @@
-package main
+package apitest
 
 import (
 	"fmt"
@@ -52,7 +52,7 @@ func fn7(wg *sync.WaitGroup) {
 
 // Define arithmetic operations: sum, subtract, multiply, divide
 
-func main() {
+func main14() {
 	var wg sync.WaitGroup
 	runtime.GOMAXPROCS(3) // Limit the number of OS threads
 

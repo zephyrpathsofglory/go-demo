@@ -1,4 +1,4 @@
-package main
+package pathsum
 
 type Node struct {
 	val   int

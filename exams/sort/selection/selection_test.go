@@ -3,7 +3,7 @@ package selection_test
 import (
 	"testing"
 
-	"github.com/go-demo/sort/selection"
+	"github.com/go-demo/exams/sort/selection"
 	"github.com/stretchr/testify/assert"
 )
 

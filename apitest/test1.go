@@ -1,4 +1,4 @@
-package main
+package apitest
 
 import (
 	"bytes"
@@ -36,6 +36,7 @@ func main1() {
 		runtime.GC()
 	}
 }
+
 func processRequest(size int) {
 	b := pool.Get().(*bytes.Buffer)
 	fmt.Printf("buffer address: %p, size: %d, capacity: %d\n", b, b.Len(), b.Cap())

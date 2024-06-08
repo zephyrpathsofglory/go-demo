@@ -1,4 +1,4 @@
-package main
+package pathsum
 
 import (
 	"testing"
@@ -66,5 +66,4 @@ func TestExam(t *testing.T) {
 			{1, 4, 2, -4},
 		}, pathSum(root, 3))
 	}
-
 }
