@@ -7,7 +7,7 @@ import (
 
 // 有三个函数，分别打印"cat", "fish","dog"要求每一个函数都用一个goroutine，按照顺序打印100次。
 
-func main3() {
+func loopPrint() {
 	var wg sync.WaitGroup
 	cat := make(chan struct{})
 	dog := make(chan struct{})
