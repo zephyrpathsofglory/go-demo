@@ -82,7 +82,7 @@ func largestIsland(grid [][]int) int {
 	}
 
 	for i := range grid {
-		for j := range grid {
+		for j := range grid[i] {
 			if grid[i][j] == 0 {
 				numberUp, count := checkNeighbor(i-1, j)
 				size := count
