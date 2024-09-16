@@ -54,6 +54,4 @@ func task(ctx context.Context) {
 	}
 
 	wg.Wait()
-
-	return
 }

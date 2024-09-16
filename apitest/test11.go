@@ -25,12 +25,10 @@ func myfunc1(arr []int) {
 	arr = append(arr, 2)
 	arr[0] = 0
 	fmt.Println(arr)
-	return
 }
 
 func myfunc2(arr []int) {
 	arr = append(arr, 5)
 	arr[0] = 9
 	fmt.Println(arr)
-	return
 }

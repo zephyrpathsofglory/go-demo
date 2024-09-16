@@ -57,7 +57,7 @@ func LastStoneWeightII(stones []int) int {
 			if j < stones[i-1] {
 				a[i][j] = a[i-1][j]
 			} else {
-				a[i][j] = max(a[i-1][j], stones[i-1]+a[i-1][j-stones[i-1]])
+				a[i][j] = maxInt(a[i-1][j], stones[i-1]+a[i-1][j-stones[i-1]])
 			}
 		}
 	}
@@ -65,7 +65,7 @@ func LastStoneWeightII(stones []int) int {
 	return sum - a[len(stones)][target]*2
 }
 
-func max(x, y int) int {
+func maxInt(x, y int) int {
 	if x > y {
 		return x
 	}

@@ -15,7 +15,7 @@ matrix[i][j]==matrix[j][i] 。
 */
 
 func computeBroadcastCount(connectivities [][]int) int {
-	traveled := make([]bool, len(connectivities), len(connectivities))
+	traveled := make([]bool, len(connectivities))
 	count := 0
 
 	var f func(int)
@@ -34,7 +34,7 @@ func computeBroadcastCount(connectivities [][]int) int {
 	}
 
 	for i := range connectivities {
-		if traveled[i] == false {
+		if !traveled[i] {
 			f(i)
 			count += 1
 		}

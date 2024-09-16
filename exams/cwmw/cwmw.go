@@ -7,7 +7,7 @@ func ContainWithMostWater(nums []int) (res int) {
 	j := len(nums) - 1
 
 	for j > i {
-		res = max(res, min(nums[i], nums[j])*(j-i))
+		res = maxInt(res, minInt(nums[i], nums[j])*(j-i))
 
 		if nums[i] < nums[j] {
 			i++
@@ -19,7 +19,7 @@ func ContainWithMostWater(nums []int) (res int) {
 	return res
 }
 
-func max(x, y int) int {
+func maxInt(x, y int) int {
 	if x > y {
 		return x
 	}
@@ -27,7 +27,7 @@ func max(x, y int) int {
 	return y
 }
 
-func min(x, y int) int {
+func minInt(x, y int) int {
 	if x > y {
 		return y
 	}

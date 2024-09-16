@@ -10,11 +10,6 @@ addAtTail(val)：将值为 val 的节点追加到链表的最后一个元素。
 addAtIndex(index,val)：在链表中的第 index 个节点之前添加值为 val  的节点。如果 index 等于链表的长度，则该节点将附加到链表的末尾。
 如果 index 大于链表长度，则不会插入节点。如果index小于0，则在头部插入节点。
 deleteAtIndex(index)：如果索引 index 有效，则删除链表中的第 index 个节点。
-
-
-来源：力扣（LeetCode）
-链接：https://leetcode.cn/problems/design-linked-list
-著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 */
 
 package linkedlist
@@ -32,12 +27,12 @@ func Constructor() MyLinkedList {
 	}
 }
 
-func (this *MyLinkedList) Get(index int) int {
-	if this.size == 0 || index < 0 || index > this.size-1 {
+func (l *MyLinkedList) Get(index int) int {
+	if l.size == 0 || index < 0 || index > l.size-1 {
 		return -1
 	}
 
-	cur := this.dummy
+	cur := l.dummy
 	for i := 0; i <= index; i++ {
 		cur = cur.Next
 	}
@@ -45,49 +40,49 @@ func (this *MyLinkedList) Get(index int) int {
 	return cur.Val
 }
 
-func (this *MyLinkedList) AddAtHead(val int) {
-	tmp := this.dummy.Next
+func (l *MyLinkedList) AddAtHead(val int) {
+	tmp := l.dummy.Next
 
 	toAdd := &listnode.ListNode{
 		Val:  val,
 		Next: tmp,
 	}
 
-	this.dummy.Next = toAdd
-	this.size++
+	l.dummy.Next = toAdd
+	l.size++
 
 	return
 }
 
-func (this *MyLinkedList) AddAtTail(val int) {
+func (l *MyLinkedList) AddAtTail(val int) {
 	toAdd := &listnode.ListNode{
 		Val:  val,
 		Next: nil,
 	}
 
-	cur := this.dummy
+	cur := l.dummy
 	for cur.Next != nil {
 		cur = cur.Next
 	}
 
 	cur.Next = toAdd
-	this.size++
+	l.size++
 
 	return
 }
 
-func (this *MyLinkedList) AddAtIndex(index int, val int) {
+func (l *MyLinkedList) AddAtIndex(index int, val int) {
 	if index < 0 {
-		this.AddAtHead(val)
+		l.AddAtHead(val)
 		return
 	}
 
-	if index == this.size {
-		this.AddAtTail(val)
+	if index == l.size {
+		l.AddAtTail(val)
 		return
 	}
 
-	if index > this.size {
+	if index > l.size {
 		return
 	}
 
@@ -95,7 +90,7 @@ func (this *MyLinkedList) AddAtIndex(index int, val int) {
 		Val: val,
 	}
 
-	cur := this.dummy
+	cur := l.dummy
 	for i := 0; i < index; i++ {
 		cur = cur.Next
 	}
@@ -104,17 +99,17 @@ func (this *MyLinkedList) AddAtIndex(index int, val int) {
 
 	cur.Next = toAdd
 	toAdd.Next = tmp
-	this.size++
+	l.size++
 
 	return
 }
 
-func (this *MyLinkedList) DeleteAtIndex(index int) {
-	if index < 0 || index >= this.size {
+func (l *MyLinkedList) DeleteAtIndex(index int) {
+	if index < 0 || index >= l.size {
 		return
 	}
 
-	cur := this.dummy
+	cur := l.dummy
 	for i := 0; i < index; i++ {
 		cur = cur.Next
 		if cur == nil {
@@ -125,7 +120,7 @@ func (this *MyLinkedList) DeleteAtIndex(index int) {
 	tmp := cur.Next.Next
 
 	cur.Next = tmp
-	this.size--
+	l.size--
 
 	return
 }

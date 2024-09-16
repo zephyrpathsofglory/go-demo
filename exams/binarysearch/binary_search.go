@@ -1,5 +1,4 @@
-//704. Binary Search
-
+// 704. Binary Search
 package binarysearch
 
 func BinarySearch(nums []int, target int) int {

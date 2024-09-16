@@ -3,8 +3,9 @@ package median_test
 import (
 	"testing"
 
-	"github.com/go-demo/exams/median"
 	"github.com/stretchr/testify/assert"
+
+	"github.com/go-demo/exams/median"
 )
 
 func TestMedianSplit(t *testing.T) {

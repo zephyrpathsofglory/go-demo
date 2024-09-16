@@ -44,7 +44,7 @@ func smallestRange(nums [][]int) []int {
 	numsC = nums
 	rangeLeft, rangeRight := 0, math.MaxInt32
 	minRange := rangeRight - rangeLeft
-	max := math.MinInt32
+	maxInt := math.MinInt32
 
 	size := len(nums)
 	next = make([]int, size)
@@ -53,15 +53,15 @@ func smallestRange(nums [][]int) []int {
 
 	for i := 0; i < size; i++ {
 		heap.Push(h, i)
-		max = Max(max, nums[i][0])
+		maxInt = Max(maxInt, nums[i][0])
 	}
 
 	for {
 		minIndex := heap.Pop(h).(int)
-		curRange := max - nums[minIndex][next[minIndex]]
+		curRange := maxInt - nums[minIndex][next[minIndex]]
 		if curRange < minRange {
 			minRange = curRange
-			rangeLeft, rangeRight = nums[minIndex][next[minIndex]], max
+			rangeLeft, rangeRight = nums[minIndex][next[minIndex]], maxInt
 		}
 		next[minIndex]++
 		if next[minIndex] == len(nums[minIndex]) {
@@ -69,7 +69,7 @@ func smallestRange(nums [][]int) []int {
 		}
 
 		heap.Push(h, minIndex)
-		max = Max(max, nums[minIndex][next[minIndex]])
+		maxInt = Max(maxInt, nums[minIndex][next[minIndex]])
 	}
 
 	return []int{rangeLeft, rangeRight}

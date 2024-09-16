@@ -22,7 +22,7 @@ func MedianSplit(nums1 []int, nums2 []int) float64 {
 	}
 }
 
-func kth(nums1 []int, nums2 []int, k int) (nums1_left, nums2_left []int, val int) {
+func kth(nums1 []int, nums2 []int, k int) (nums1Left, nums2Left []int, val int) {
 	for {
 		if len(nums1) == 0 {
 			val = nums2[k-1]
@@ -73,8 +73,8 @@ func kth(nums1 []int, nums2 []int, k int) (nums1_left, nums2_left []int, val int
 		}
 	}
 
-	nums1_left = nums1
-	nums2_left = nums2
+	nums1Left = nums1
+	nums2Left = nums2
 
 	return
 }

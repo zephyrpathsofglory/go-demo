@@ -11,5 +11,5 @@ func Test189(t *testing.T) {
 	k := 3
 	rotate(input, k)
 
-	assert.Equal(t, input, []int{5, 6, 7, 1, 2, 3, 4})
+	assert.Equal(t, []int{5, 6, 7, 1, 2, 3, 4}, input)
 }
