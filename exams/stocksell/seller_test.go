@@ -3,8 +3,9 @@ package stocksell_test
 import (
 	"testing"
 
-	"github.com/go-demo/exams/stocksell"
 	"github.com/stretchr/testify/assert"
+
+	"github.com/go-demo/exams/stocksell"
 )
 
 func TestMaxProfit(t *testing.T) {

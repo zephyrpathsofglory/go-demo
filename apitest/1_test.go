@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"runtime"
 	"sync"
+	"testing"
 	"time"
 )
 
@@ -12,7 +13,7 @@ var pool = sync.Pool{New: func() interface{} { return new(bytes.Buffer) }}
 
 var n = runtime.GOMAXPROCS(1)
 
-func main1() {
+func Test1(_ *testing.T) {
 	fmt.Println(n)
 	go func() {
 		for {
@@ -68,7 +69,7 @@ func printMemoryUsage() (mb uint64) {
 	fmt.Printf("MCache memory obtained from the OS: %d bytes\n", stats.MCacheSys)
 	fmt.Printf("GC memory obtained from the OS: %d bytes\n", stats.GCSys)
 	fmt.Printf("Number of completed garbage collection cycles: %d\n", stats.NumGC)
-	fmt.Printf("Total time spent in garbage collection: %v\n", time.Duration(stats.PauseTotalNs))
+	fmt.Printf("Total time spent in garbage collection: %v\n", stats.PauseTotalNs)
 
 	return stats.Alloc / 1024 / 1024
 }

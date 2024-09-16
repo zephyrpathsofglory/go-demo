@@ -1,6 +1,9 @@
 package apitest
 
-import "fmt"
+import (
+	"fmt"
+	"testing"
+)
 
 func MyAppend(arr []int) []int {
 	arr = append(arr, 5)
@@ -16,7 +19,7 @@ func MyAdd(arr []int) {
 	return
 }
 
-func main9() {
+func Test9(_ *testing.T) {
 	arr := []int{1, 2, 3, 4}
 	MyAppend(arr)
 	fmt.Println(arr)

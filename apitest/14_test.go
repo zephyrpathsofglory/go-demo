@@ -7,6 +7,7 @@ import (
 	"runtime/trace"
 	"sync"
 	"syscall"
+	"testing"
 )
 
 // Define functions fn1 through fn5, each performing simple operations // and printing results.
@@ -52,7 +53,7 @@ func fn7(wg *sync.WaitGroup) {
 
 // Define arithmetic operations: sum, subtract, multiply, divide
 
-func main14() {
+func Test14(_ *testing.T) {
 	var wg sync.WaitGroup
 	runtime.GOMAXPROCS(3) // Limit the number of OS threads
 

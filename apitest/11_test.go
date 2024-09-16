@@ -1,6 +1,9 @@
 package apitest
 
-import "fmt"
+import (
+	"fmt"
+	"testing"
+)
 
 /*
 [0 2]
@@ -9,7 +12,7 @@ import "fmt"
 [9 3 4]
 */
 
-func main11() {
+func Test11(_ *testing.T) {
 	arr := []int{1}
 
 	myfunc1(arr)

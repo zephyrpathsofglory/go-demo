@@ -1,6 +1,9 @@
 package apitest
 
-import "fmt"
+import (
+	"fmt"
+	"testing"
+)
 
 /*
 0
@@ -13,7 +16,7 @@ import "fmt"
 5
 */
 
-func main12() {
+func Test12(_ *testing.T) {
 	fmt.Println(test1())
 	fmt.Println(test2())
 	fmt.Println(test3())

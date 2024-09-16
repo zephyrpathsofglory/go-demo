@@ -3,6 +3,7 @@ package apitest
 import (
 	"errors"
 	"fmt"
+	"testing"
 )
 
 /*
@@ -27,6 +28,6 @@ func f() (err error) {
 	return
 }
 
-func main10() {
+func Test10(_ *testing.T) {
 	fmt.Println(f())
 }

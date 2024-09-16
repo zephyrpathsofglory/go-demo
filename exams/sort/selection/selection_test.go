@@ -3,8 +3,9 @@ package selection_test
 import (
 	"testing"
 
-	"github.com/go-demo/exams/sort/selection"
 	"github.com/stretchr/testify/assert"
+
+	"github.com/go-demo/exams/sort/selection"
 )
 
 func TestSelectionSort(t *testing.T) {

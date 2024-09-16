@@ -74,28 +74,6 @@ func countSolutions(a, b []int) int {
 	}
 }
 
-func contains(arr []int, d int) bool {
-	for _, j := range arr {
-		if d == j {
-			return true
-		}
-	}
-
-	return false
-}
-
-func remove(arr1, arr2 []int) (res []int) {
-	for _, i := range arr1 {
-		if contains(arr2, i) {
-			continue
-		}
-
-		res = append(res, i)
-	}
-
-	return
-}
-
 func least(arr []int) int {
 	l := arr[0]
 
