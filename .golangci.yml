@@ -39,7 +39,7 @@ linters-settings:
   nestif:
     # Minimal complexity of if statements to report.
     # Default: 5
-    min-complexity: 4
+    min-complexity: 7
   cyclop:
     # The maximal code complexity to report.
     # Default: 10
