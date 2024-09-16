@@ -8,18 +8,18 @@ leetcode 47
 func permuteUnique(inputs []int) (res [][]int) {
 	var f func([]int, []int)
 
-	f = func(preset []int, left []int) {
-		if len(left) == 1 {
+	f = func(preset []int, remain []int) {
+		if len(remain) == 1 {
 			r := append([]int{}, preset...)
-			res = append(res, append(r, left[0]))
+			res = append(res, append(r, remain[0]))
 			return
 		}
 
 		appearance := make(map[int]bool)
-		for i, n := range left {
+		for i, n := range remain {
 			if !appearance[n] {
-				t1 := append([]int{}, left[0:i]...)
-				t2 := append(t1, left[i+1:]...)
+				t1 := append([]int{}, remain[0:i]...)
+				t2 := append(t1, remain[i+1:]...)
 				f(append(append([]int{}, preset...), n), t2)
 				appearance[n] = true
 			}
