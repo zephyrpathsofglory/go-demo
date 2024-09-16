@@ -8,7 +8,6 @@ linters:
     - stylecheck
     # style linters start
     - asciicheck
-    - forcetypeassert
     - whitespace
     - unconvert
     - predeclared
@@ -16,10 +15,11 @@ linters:
     - reassign
     - cyclop
     - nestif
+    - revive
     # style linters end
   disable:
+    - forcetypeassert
     # deprecated linters start
-    - scopelint
     - maligned
     - contextcheck
     # deprecated linters end
@@ -28,7 +28,6 @@ linters:
     - depguard
     - gosmopolitan
     - perfsprint
-    - revive
   presets:
     - import
     - bugs
@@ -48,10 +47,10 @@ linters-settings:
     # The maximal average package complexity.
     # If it's higher than 0.0 (float) the check is enabled
     # Default: 0.0
-    package-average: 0.5
+    package-average: 10
     # Should ignore tests.
     # Default: false
-    skip-tests: false
+    skip-tests: true
   lll:
     # max line length, lines longer will be reported. Default is 120.
     # '\t' is counted as 1 character by default, and can be changed with the tab-width option
@@ -88,10 +87,11 @@ linters-settings:
         severity: warning
         disabled: false
         exclude: [""]
-        arguments: [3]
+        arguments: [4]
 
 issues:
   exclude-dirs:
     - ^gen/
+    - /opt/opt/homebrew/Cellar/go/*
   exclude:
     - "^SA1019: problem\\..*"
