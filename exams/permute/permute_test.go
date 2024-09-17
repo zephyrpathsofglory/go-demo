@@ -9,23 +9,23 @@ import (
 func TestPermute(t *testing.T) {
 	{
 		res := permute([]int{1, 2, 3})
-		assert.Equal(t, 6, len(res))
+		assert.Len(t, res, 6)
 	}
 
 	{
 		res := permute([]int{1, 2, 3, 4})
-		assert.Equal(t, 24, len(res))
+		assert.Len(t, res, 24)
 	}
 }
 
 func TestPermuteBacktrace(t *testing.T) {
 	{
 		res := permuteBacktrace([]int{1, 2, 3})
-		assert.Equal(t, 6, len(res))
+		assert.Len(t, res, 6)
 	}
 
 	{
 		res := permuteBacktrace([]int{1, 2, 3, 4})
-		assert.Equal(t, 24, len(res))
+		assert.Len(t, res, 24)
 	}
 }

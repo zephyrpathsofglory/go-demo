@@ -4,11 +4,12 @@ import (
 	"context"
 	"fmt"
 	"sync"
+	"testing"
 	"time"
 )
 
 // 多 producer 和 多 consumer ，通过 channel 发送，并且打印出 生产者和消费者
-func main2() {
+func Test2(_ *testing.T) {
 	fmt.Println("start")
 	ctx := context.TODO()
 	ctx1, cancel := context.WithTimeout(ctx, 5*time.Second)

@@ -3,10 +3,11 @@ package apitest
 import (
 	"fmt"
 	"sync"
+	"testing"
 )
 
 // 两个协程交替打印10个字母和数字
-func main5() {
+func Test5(_ *testing.T) {
 	numChan := make(chan struct{})
 	charChan := make(chan struct{})
 	times := 10

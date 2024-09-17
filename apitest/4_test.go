@@ -4,11 +4,12 @@ import (
 	"context"
 	"fmt"
 	"sync"
+	"testing"
 	"time"
 )
 
 // 启动 2个groutine 2秒后取消， 第一个协程1秒执行完，第二个协程3秒执行完。
-func main4() {
+func Test4(_ *testing.T) {
 	ctx, cancel := context.WithTimeout(context.TODO(), 2*time.Second)
 	defer cancel()
 

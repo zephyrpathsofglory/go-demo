@@ -1,9 +1,12 @@
 package apitest
 
-import "fmt"
+import (
+	"fmt"
+	"testing"
+)
 
 // 当select监控多个chan同时到达就绪态时，如何先执行某个任务？
-func main6() {
+func Test6(_ *testing.T) {
 	c1 := make(chan struct{})
 	c2 := make(chan struct{})
 
