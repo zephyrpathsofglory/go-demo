@@ -104,7 +104,7 @@ func inSameSubNet(ip1, ip2, mask string) uint8 {
 		return 1
 	}
 
-	ok, maskParts := isValidIP(mask)
+	ok, maskParts := isValidMask(mask)
 	if !ok {
 		return 1
 	}
@@ -142,4 +142,42 @@ func isValidIP(ip string) (bool, []uint8) {
 		numParts = append(numParts, uint8(i))
 	}
 	return true, numParts
+}
+
+func isValidMask(mask string) (bool, []uint8) {
+	ok, parts := isValidIP(mask)
+	if !ok {
+		return ok, parts
+	}
+
+	var res int
+
+	for i := 0; i < 4; i++ {
+		bits := 8 * (3 - i)
+		operator := int(parts[i])
+		k := (operator << bits)
+		res += k
+	}
+
+	ok = isValidMaskVal(res)
+	if ok {
+		return true, parts
+	} else {
+		return false, []uint8{}
+	}
+}
+
+func isValidMaskVal(t int) bool {
+	for i := 31; i >= 0; i-- {
+		t = t - 1<<i
+		if t == 0 {
+			break
+		}
+
+		if t < 0 {
+			return false
+		}
+	}
+
+	return true
 }
